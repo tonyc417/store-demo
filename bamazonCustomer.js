@@ -12,14 +12,24 @@ var connection = mysql.createConnection({
 connection.connect(function (err) {
     if (err) throw err;
     console.log('Connected as ID: ' + connection.threadId);
-    checkInventory();
+    runSearch();
 })
 
-checkInventory = () => {
-    connection.query("SELECT * FROM products", (err, res) => {
-        if (err) throw err;
-        console.log(res);
-        connection.end();
-    });
-}
+// checkInventory = () => {
+//     connection.query("SELECT * FROM products", (err, res) => {
+//         if (err) throw err;
+//         var testing = res.map(item => item);
+//         console.log(testing);
+//         connection.end();
+//     });
+// }
 
+runSearch = () => { inquirer.prompt([{
+    type: 'input',
+    name: 'checkInventory',
+    message: 'Would you like to check our inventory?'
+}]).then(function(response) {
+    console.log(response);
+    connection.end();
+    console.log("Connection Ended");
+})};
