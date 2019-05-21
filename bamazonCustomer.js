@@ -19,12 +19,11 @@ checkInventory = () => {
     connection.query("SELECT * FROM products", (err, res) => {
         if (err) throw err;
         for (var i = 0; i < res.length; i++) {
-            console.log(res[i].product_name + "\t" + 
+            console.log("Item ID: " + res[i].item_id + " " + res[i].product_name + "\t" + 
             res[i].department_name + "\t" + 
             res[i].price + "\t" + 
             res[i].stock_quantity);
         }
-        connection.end();
     }); 
 }
 
