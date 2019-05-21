@@ -29,14 +29,26 @@ checkInventory = () => {
 }
 
 runSearch = () => { inquirer.prompt({
-    name: 'action',
-    type: 'list-input',
+    name: 'theme',
+    type: 'list',
     message: 'What would you like to do?',
     choices: [
         'Check the inventory?',
         'Buy an item?'
     ]
 }).then(function(choices) {
-    console.log(choices);
+    switch(choices.theme) {
+        case "Check the inventory?":
+        checkInventory();
+        break;
+
+        case "Buy an item?":
+
+    }
+    // console.log(choices);
     connection.end();
 })};
+
+buyItem = () => {
+
+}
