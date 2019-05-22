@@ -15,6 +15,8 @@ connection.connect(function (err) {
     runSearch();
 })
 
+
+
 checkInventory = () => {
     connection.query("SELECT * FROM products", (err, res) => {
         if (err) throw err;
@@ -45,7 +47,7 @@ runSearch = () => { inquirer.prompt({
         buyItem();
         break;
     }
-    connection.end();
+    // connection.end();
 })};
 
 buyItem = () => {
@@ -100,6 +102,10 @@ function buyNew() {
         type: 'input',
         message: 'How many would you like to purchase?' 
     }).then(function(answer) {
-        console.log(answer);
+        if(answer.quantity > 10) {
+            console.log("There is only 10 avaiable sorry");
+        }
+        connection.end();
     })
-}
+};
+
