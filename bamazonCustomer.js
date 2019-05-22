@@ -42,12 +42,64 @@ runSearch = () => { inquirer.prompt({
         break;
 
         case "Buy an item?":
-
+        buyItem();
+        break;
     }
-    // console.log(choices);
     connection.end();
 })};
 
 buyItem = () => {
+    inquirer.prompt({
+        name: 'testing',
+        type: 'input',
+        message: 'Please input the ID for the item you want to buy'
+    }).then(function(answer) {
+        switch(answer.testing) {
+            case "1":
+            buyNew();
+            break;
 
+            case "2":
+            buyNew();
+            break;
+
+            case "3":
+            buyNew();
+            break;
+
+            case "4":
+            buyNew();
+            break;
+
+            case "6":
+            buyNew();
+            break;
+
+            case "7":
+            buyNew();
+            break;
+            
+            case "8":
+            buyNew();
+            break;
+
+            case "9":
+            buyNew();
+            break;
+
+            case "10":
+            buyNew();
+            break;
+        }
+    })
+}
+
+function buyNew() {
+    inquirer.prompt({
+        name: "quantity",
+        type: 'input',
+        message: 'How many would you like to purchase?' 
+    }).then(function(answer) {
+        console.log(answer);
+    })
 }
